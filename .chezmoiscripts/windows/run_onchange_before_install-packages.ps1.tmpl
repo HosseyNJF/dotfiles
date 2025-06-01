@@ -1,0 +1,12 @@
+{{ if eq .osid "windows" -}}
+{{ template "powershell_elevate" . }}
+
+{{ $packages := list
+ "neovim"
+ "git"
+ "gsudo"
+-}}
+choco install -y {{ $packages | join " " }}
+
+{{ template "powershell_pause_on_error" . }}
+{{ end -}}

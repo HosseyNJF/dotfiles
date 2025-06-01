@@ -1,0 +1,16 @@
+{{ template "chezmoi_header" . }}
+
+# Docker
+alias dk="docker"
+alias dkc="docker-compose"
+
+# Kubernetes
+alias k="kubectl"
+
+# Laravel
+alias sail="./vendor/bin/sail"
+
+{{ if eq .osid "darwin" }}
+# Use GNU sed in macOS
+alias sed="gsed"
+{{ end }}

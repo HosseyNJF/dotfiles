@@ -1,0 +1,34 @@
+{{ template "chezmoi_header" . }}
+
+[user]
+	name = {{ .git.name | quote }}
+	email = {{ .git.email | quote }}
+	signingkey = {{ .git.signingKey | quote }}
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+{{ if eq .osid "windows" }}
+	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+{{ end }}
+[push]
+	followTags = true
+	autoSetupRemote = true
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+{{ if eq .osid "windows" }}
+[gpg "ssh"]
+	program = C:/Windows/System32/OpenSSH/ssh-keygen.exe
+{{ end }}
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main

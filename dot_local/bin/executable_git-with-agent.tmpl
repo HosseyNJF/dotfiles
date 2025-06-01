@@ -1,0 +1,8 @@
+#!/bin/bash
+
+{{ template "chezmoi_header" . }}
+
+# Meant to be used with PyCharm's Git Integration.
+
+source $HOME/.local/bin/ssh-agent-pipe
+/usr/bin/git "$@"

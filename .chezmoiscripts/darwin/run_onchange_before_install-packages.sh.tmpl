@@ -1,0 +1,38 @@
+{{ if eq .osid "darwin" -}}
+
+{{ $brews := list
+     "artginzburg/tap/sudo-touchid"
+     "curl"
+     "git"
+     "git-lfs"
+     "go"
+     "jq"
+     "wget" -}}
+{{ $casks := list
+     "zen"
+     "spotify"
+     "telegram"
+     "transmission"
+     "visual-studio-code"
+     "pycharm"
+     "goland"
+     "webstorm"
+     "iterm2@beta"
+     "vlc"
+     "whatsapp" -}}
+
+#!/bin/bash
+
+brew bundle --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+EOF
+
+if [[ $(brew services info sudo-touchid --json | jq -r '.[0].registered') == "false" ]]; then
+  sudo brew services start sudo-touchid
+fi
+{{ end -}}

@@ -1,0 +1,13 @@
+{{ template "chezmoi_header" . }}
+
+ServerAliveInterval 60
+ServerAliveCountMax 10
+
+{{ if eq .osid "darwin" }}
+Include ~/.orbstack/ssh/config
+{{ end }}
+
+{{ if ne .osid "windows" }}
+# SSH Hosts
+{{ (rbw "SSH Hosts").notes }}"
+{{ end }}

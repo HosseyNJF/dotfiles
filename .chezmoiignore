@@ -1,0 +1,13 @@
+{{ if or (ne .chezmoi.os "linux") (not (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
+.local/bin/ssh-agent-pipe
+{{ end }}
+{{ if eq .osid "windows" }}
+.zshrc
+.p10k.zsh
+.aliases
+{{ end }}
+{{ if ne .osid "windows" }}
+.wslconfig
+.oh-my-zsh/cache
+.oh-my-zsh/custom/themes/powerlevel10k/**/*.zwc
+{{ end }}

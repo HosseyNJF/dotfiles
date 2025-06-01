@@ -1,0 +1,22 @@
+{{- $gitName := promptStringOnce . "git.name" "Git Name" -}}
+{{- $gitEmail := promptStringOnce . "git.email" "Git Email address" -}}
+{{- $gitSigningKey := promptStringOnce . "git.signingKey" "Git Signing Key (SSH public key)" -}}
+{{- $bwServer := promptStringOnce . "bitwarden.server" "Bitwarden server URL (https://vault.bitwarden.eu, https://vault.bitwarden.com, self-hosted)" -}}
+{{- $bwEmail := promptStringOnce . "bitwarden.email" "Bitwarden user email" -}}
+
+{{- $osID := .chezmoi.os -}}
+{{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
+{{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+[data]
+    osid = {{ $osID | quote }}
+
+[data.git]
+    name = {{ $gitName | quote }}
+    email = {{ $gitEmail | quote }}
+    signingKey = {{ $gitSigningKey | quote }}
+
+[data.bitwarden]
+    server = {{ $bwServer | quote }}
+    email = {{ $bwEmail | quote }}

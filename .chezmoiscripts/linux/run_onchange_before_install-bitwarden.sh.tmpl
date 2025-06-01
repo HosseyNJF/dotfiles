@@ -1,0 +1,14 @@
+{{ if eq .osid "linux-debian" "linux-raspbian" "linux-ubuntu" -}}
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+#!/bin/sh
+
+curl --output /tmp/rbw.deb https://git.tozt.net/rbw/releases/deb/rbw_1.9.0_amd64.deb
+{{ $sudo }}apt install -y /tmp/rbw.deb
+rm /tmp/rbw.deb
+rbw config set base_url {{ .bitwarden.server }}
+rbw config set email {{ .bitwarden.email }}
+rbw login
+{{ end -}}
