@@ -4,7 +4,7 @@
 brew install rbw bitwarden
 
 # Fix pinentry using 100% cpu (https://github.com/doy/rbw/issues/11)
-rbw config set pinentry /opt/homebrew/bin/pinentry-tty
+rbw config set pinentry $(which pinentry-tty)
 rbw config set base_url {{ .bitwarden.server }}
 rbw config set email {{ .bitwarden.email }}
 rbw login
