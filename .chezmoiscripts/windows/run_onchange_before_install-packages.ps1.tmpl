@@ -9,6 +9,9 @@
 -}}
 {{ $apps := list
  "postman"
+ "pycharm"
+ "goland"
+ "webstorm"
 -}}
 choco install -y {{ $packages | join " " }} {{ $apps | join " " }}
 
