@@ -5,8 +5,12 @@
  "neovim"
  "git"
  "gsudo"
+ "python"
 -}}
-choco install -y {{ $packages | join " " }}
+{{ $apps := list
+ "postman"
+-}}
+choco install -y {{ $packages | join " " }} {{ $apps | join " " }}
 
 {{ template "powershell_pause_on_error" . }}
 {{ end -}}
