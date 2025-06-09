@@ -82,7 +82,7 @@ export GPG_TTY=$TTY
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
 else
-   export EDITOR='nvim'
+   export EDITOR='pycharm --wait -e'
 fi
 
 # Compilation flags
