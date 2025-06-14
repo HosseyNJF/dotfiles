@@ -1,3 +1,11 @@
+{{- $headless := false -}}
+
+{{- if stdinIsATTY -}}
+{{-   $headless = promptBoolOnce . "headless" "Is this host headless (without GUI)" -}}
+{{- else -}}
+{{-   $headless = true -}}
+{{- end -}}
+
 {{- $gitName := promptStringOnce . "git.name" "Git Name" -}}
 {{- $gitEmail := promptStringOnce . "git.email" "Git Email address" -}}
 {{- $gitSigningKey := promptStringOnce . "git.signingKey" "Git Signing Key (SSH public key)" -}}
@@ -11,6 +19,7 @@
 
 [data]
     osid = {{ $osID | quote }}
+    headless = {{ $headless }}
 
 [data.git]
     name = {{ $gitName | quote }}
@@ -20,7 +29,8 @@
 [data.bitwarden]
     server = {{ $bwServer | quote }}
     email = {{ $bwEmail | quote }}
-
+{{ if not $headless }}
 [edit]
     command = "pycharm"
     args = ["--wait", "-e"]
+{{ end -}}

@@ -32,8 +32,10 @@ brew bundle --file=/dev/stdin <<EOF
 {{ range ($brews | sortAlpha | uniq) -}}
 brew "{{ . }}"
 {{ end -}}
+{{ if not .headless -}}
 {{ range ($casks | sortAlpha | uniq) -}}
 cask "{{ . }}"
+{{ end -}}
 {{ end -}}
 EOF
 
