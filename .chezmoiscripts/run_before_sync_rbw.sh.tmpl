@@ -1,0 +1,7 @@
+{{ if ne .osid "windows" -}}
+#!/bin/bash
+
+if [ -x "$(command -v rbw)" ]; then
+    rbw sync
+fi
+{{ end -}}
