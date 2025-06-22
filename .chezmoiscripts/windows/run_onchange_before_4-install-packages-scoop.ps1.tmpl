@@ -1,0 +1,37 @@
+{{ if eq .osid "windows" -}}
+echo "--- Installing Scoop Packages ---"
+
+function Install-Or-Update-Scoop {
+    param([string]$AppName)
+    if (scoop list $AppName 2>$null 6>$null) { scoop update $AppName } else { scoop install $AppName }
+}
+
+{{ $packages := list
+ "neovim"
+ "git"
+ "gsudo"
+ "python"
+ "npiperelay"
+ "oh-my-posh"
+-}}
+{{ $apps := list
+ "bitwarden"
+ "obsidian"
+ "telegram"
+ "postman"
+ "pycharm-professional"
+ "goland"
+ "webstorm"
+ "kopiaui"
+ "syncthingtray"
+ "powertoys"
+-}}
+{{ range $package := $packages }}
+Install-Or-Update-Scoop {{ $package }}
+{{ end }}
+{{ if not .headless }}
+{{ range $app := $apps }}
+Install-Or-Update-Scoop {{ $app }}
+{{ end -}}
+{{ end -}}
+{{ end -}}

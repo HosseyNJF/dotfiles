@@ -1,0 +1,9 @@
+{{ if eq .osid "windows" -}}
+
+{{ if not .headless }}
+echo "--- Installing Docker Desktop ---"
+winget install -e --id Docker.DockerDesktop
+{{ end -}}
+
+exit 0
+{{ end -}}

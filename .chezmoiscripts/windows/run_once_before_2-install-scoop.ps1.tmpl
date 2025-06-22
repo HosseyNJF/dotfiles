@@ -1,0 +1,12 @@
+{{ if eq .osid "windows" -}}
+echo "--- Installing Scoop ---"
+if (Get-Command "scoop" -ErrorAction SilentlyContinue) {
+    scoop update
+} else {
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+}
+
+scoop install aria2
+scoop config aria2-warning-enabled false
+{{ end -}}

@@ -29,3 +29,7 @@
 [data.bitwarden]
     server = {{ $bwServer | quote }}
     email = {{ $bwEmail | quote }}
+
+[interpreters.ps1]
+    command = "pwsh"
+    args = ["-NoLogo"]
