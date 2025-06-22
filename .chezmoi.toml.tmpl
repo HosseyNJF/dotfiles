@@ -29,8 +29,3 @@
 [data.bitwarden]
     server = {{ $bwServer | quote }}
     email = {{ $bwEmail | quote }}
-{{ if not $headless }}
-[edit]
-    command = "pycharm"
-    args = ["--wait", "-e"]
-{{ end -}}
