@@ -3,7 +3,7 @@
 {{ if eq .chezmoi.username "root" -}}
 {{   $sudo = "" -}}
 {{ end -}}
-#!/bin/sh
+#!{{ lookPath "bash" }}
 
 curl --output /tmp/rbw.deb https://git.tozt.net/rbw/releases/deb/rbw_1.9.0_amd64.deb
 {{ $sudo }}apt install -y /tmp/rbw.deb

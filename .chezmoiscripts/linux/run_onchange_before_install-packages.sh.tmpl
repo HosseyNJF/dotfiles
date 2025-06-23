@@ -12,7 +12,7 @@
 {{ if eq .chezmoi.username "root" -}}
 {{   $sudo = "" -}}
 {{ end -}}
-#!/bin/bash
+#!{{ lookPath "bash" }}
 
 set -eufo pipefail
 
