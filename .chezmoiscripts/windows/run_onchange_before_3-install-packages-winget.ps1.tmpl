@@ -1,9 +1,15 @@
 {{ if eq .osid "windows" -}}
+    echo "--- Installing Winget Packages ---"
+    {{ $apps := list
+    "Docker.DockerDesktop"
+    "Armin2208.WindowsAutoNightMode"
+    }}
+    {{ if not .headless }}
+        {{ range $app := $apps }}
+            echo "Installing {{ $app }}..."
+            winget install -e --id {{ $app }}
+        {{ end }}
+    {{ end -}}
 
-{{ if not .headless }}
-echo "--- Installing Docker Desktop ---"
-winget install -e --id Docker.DockerDesktop
-{{ end -}}
-
-exit 0
+    exit 0
 {{ end -}}
