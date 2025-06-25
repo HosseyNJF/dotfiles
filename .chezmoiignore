@@ -9,8 +9,11 @@
 {{ if ne .osid "windows" }}
 Documents
 Documents/**
+AppData
+AppData/**
 .wslconfig
 .oh-my-zsh/cache
 .oh-my-zsh/custom/themes/powerlevel10k/**/*.zwc
 {{ end }}
 README.md
+windows-terminal-settings.json
