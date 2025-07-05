@@ -7,9 +7,9 @@ function prompt {
     return prompt;
   }
   $global:ompjob = Start-Job {oh-my-posh init pwsh --config "$env:USERPROFILE/.powerlevel10k.omp.json"};
-  write-host -ForegroundColor Blue "Loading `$profile in the background..."
-  Write-Host -ForegroundColor Blue -NoNewline "  $($executionContext.SessionState.Path.CurrentLocation) ".replace($HOME, '~');
-  Write-Host -ForegroundColor Green -NoNewline "❯"
+  Write-Host -ForegroundColor Gray -NoNewline "  ";
+  Write-Host -ForegroundColor DarkBlue -NoNewline "$($executionContext.SessionState.Path.CurrentLocation) ".replace($HOME, '~');
+  Write-Host -ForegroundColor DarkCyan -NoNewline "❯"
   return " ";
 }
 
