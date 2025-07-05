@@ -1,0 +1,6 @@
+{{ if eq .osid "windows" -}}
+echo "--- Installing Pipx Packages ---"
+pipx ensurepath -q
+pipx install black
+pipx install poetry
+{{ end -}}
