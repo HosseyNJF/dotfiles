@@ -13,3 +13,6 @@ function k { kubectl $args }
 
 # Laravel
 function sail { ./vendor/bin/sail $args }
+
+# Git
+Import-Module git-aliases -DisableNameChecking
