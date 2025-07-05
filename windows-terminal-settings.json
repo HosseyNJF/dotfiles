@@ -52,11 +52,11 @@
                 "useAcrylic": true
             },
             {
-                "guid": "{ed2ab5c5-06b1-58c8-9841-5663e122fd09}",
                 "font":
                 {
                     "face": "MesloLGM Nerd Font Mono"
                 },
+                "guid": "{ed2ab5c5-06b1-58c8-9841-5663e122fd09}",
                 "hidden": false,
                 "name": "Ubuntu",
                 "opacity": 90,
@@ -75,12 +75,11 @@
                 "useAcrylic": true
             },
             {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "font":
                 {
                     "face": "MesloLGM Nerd Font Mono"
                 },
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
-                "experimental.retroTerminalEffect": false,
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt",
