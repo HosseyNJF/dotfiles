@@ -13,6 +13,14 @@ function prompt {
   return " ";
 }
 
+<# Tab and Up/Down arrow completion like zsh #>
+
+Import-Module PSReadLine;
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+
 <# Aliases #>
 
 # Docker
@@ -21,14 +29,6 @@ function dkc { docker compose $args }
 
 # Kubernetes
 function k { kubectl $args }
-
-<# Tab and Up/Down arrow completion like zsh #>
-
-Import-Module PSReadLine;
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
-Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 
 # Laravel
 function sail { ./vendor/bin/sail $args }
