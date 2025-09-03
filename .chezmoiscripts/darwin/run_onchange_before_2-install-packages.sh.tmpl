@@ -3,6 +3,7 @@
 {{ $brews := list
      "artginzburg/tap/sudo-touchid"
      "chezmoi"
+     "mas"
      "curl"
      "git"
      "git-lfs"
@@ -46,4 +47,6 @@ EOF
 if [[ $(brew services info sudo-touchid --json | jq -r '.[0].registered') == "false" ]]; then
   sudo brew services start sudo-touchid
 fi
+
+mas install 1352778147  # Bitwarden
 {{ end -}}
