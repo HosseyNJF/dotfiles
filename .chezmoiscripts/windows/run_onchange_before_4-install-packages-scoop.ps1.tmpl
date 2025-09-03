@@ -1,4 +1,9 @@
 {{ if eq .osid "windows" -}}
+echo "--- Adding Scoop Buckets ---"
+scoop bucket add extras
+scoop bucket add qyurila_scoop-bucket https://github.com/qyurila/scoop-bucket
+scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
+
 echo "--- Installing Scoop Packages ---"
 
 function Install-Or-Update-Scoop {
@@ -19,7 +24,9 @@ function Install-Or-Update-Scoop {
 {{ $apps := list
  "bitwarden"
  "obsidian"
+ "ticktick"
  "telegram"
+ "slack"
  "postman"
  "pycharm-professional"
  "goland"
