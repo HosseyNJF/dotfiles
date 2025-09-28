@@ -101,6 +101,11 @@ export NVM_DIR="$HOME/.nvm"
 {{ if eq .osid "darwin" }}
 # --- MacOS Configuration ---
 
+# Nexus Repository (Picnic)
+export NEXUS_USERNAME="{{ (rbwFields "Nexus Repository").Username.value }}"
+export NEXUS_PASSWORD="{{ (rbwFields "Nexus Repository").Password.value }}"
+export NEXUS_AUTHKEY="$(echo -n "$NEXUS_USERNAME:$NEXUS_PASSWORD" | base64)"
+
 # Bitwarden SSH Agent
 export SSH_AUTH_SOCK=$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock
 
