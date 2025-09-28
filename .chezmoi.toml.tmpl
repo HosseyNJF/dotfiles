@@ -29,6 +29,7 @@
 [data.bitwarden]
     server = {{ $bwServer | quote }}
     email = {{ $bwEmail | quote }}
+    is_rbw_available = {{ if ne $osID "windows" }}true{{ else }}false{{ end }}
 
 [interpreters.ps1]
     command = "pwsh"

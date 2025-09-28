@@ -8,7 +8,7 @@ Include ~/.colima/ssh_config
 Include ~/.orbstack/ssh/config
 {{ end }}
 
-{{ if ne .osid "windows" }}
+{{ if eq .bitwarden.is_rbw_available true }}
 # SSH Hosts
 {{ (rbw "SSH Hosts").notes }}
 {{ end }}

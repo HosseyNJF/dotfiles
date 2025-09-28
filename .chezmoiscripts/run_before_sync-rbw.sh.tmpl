@@ -1,4 +1,4 @@
-{{ if ne .osid "windows" -}}
+{{ if eq .bitwarden.is_rbw_available true -}}
 #!{{ lookPath "bash" }}
 
 if [ -x "$(command -v rbw)" ]; then
