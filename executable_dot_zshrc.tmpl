@@ -106,6 +106,9 @@ export NEXUS_USERNAME="{{ (rbwFields "Nexus Repository").Username.value }}"
 export NEXUS_PASSWORD="{{ (rbwFields "Nexus Repository").Password.value }}"
 export NEXUS_AUTHKEY="$(echo -n "$NEXUS_USERNAME:$NEXUS_PASSWORD" | base64)"
 
+# AWS Artifacts Profile (Picnic)
+export AWS_PROFILE=picnic-artifacts
+
 # Bitwarden SSH Agent
 export SSH_AUTH_SOCK=$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock
 

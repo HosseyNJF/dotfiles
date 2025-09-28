@@ -1,0 +1,3 @@
+{{ $original := fromJson (include .chezmoi.targetFile) -}}
+{{ $_ := set $original.credHelpers "008971659647.dkr.ecr.eu-west-1.amazonaws.com" "ecr-login" -}}
+{{ $original | toPrettyJson }}

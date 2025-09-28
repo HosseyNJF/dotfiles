@@ -1,0 +1,4 @@
+{{ if eq .bitwarden.is_rbw_available true -}}
+[profile picnic-artifacts]
+{{ (rbw "AWS Artifacts Profile").notes }}
+{{ end -}}
