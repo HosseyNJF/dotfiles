@@ -3,6 +3,8 @@
 {{ $brews := list
      "artginzburg/tap/sudo-touchid"
      "chezmoi"
+     "colima"
+     "docker"
      "mas"
      "curl"
      "git"
@@ -49,6 +51,10 @@ EOF
 
 if [[ $(brew services info sudo-touchid --json | jq -r '.[0].registered') == "false" ]]; then
   sudo brew services start sudo-touchid
+fi
+
+if [[ $(brew services info colima --json | jq -r '.[0].registered') == "false" ]]; then
+  sudo brew services start colima
 fi
 
 mas install 1352778147  # Bitwarden

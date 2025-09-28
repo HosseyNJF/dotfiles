@@ -4,6 +4,7 @@ ServerAliveInterval 60
 ServerAliveCountMax 10
 
 {{ if eq .osid "darwin" }}
+Include ~/.colima/ssh_config
 Include ~/.orbstack/ssh/config
 {{ end }}
 
