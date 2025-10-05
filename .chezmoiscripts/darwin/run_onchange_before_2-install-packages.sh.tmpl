@@ -44,23 +44,24 @@
 
 brew update
 brew bundle --file=/dev/stdin <<EOF
-{{ range ($brews | sortAlpha | uniq) -}}
+{{ range (.packages.darwin.brews | sortAlpha | uniq) -}}
 brew "{{ . }}"
 {{ end -}}
 {{ if not .headless -}}
-{{ range ($casks | sortAlpha | uniq) -}}
+{{ range (.packages.darwin.casks | sortAlpha | uniq) -}}
 cask "{{ . }}"
 {{ end -}}
 {{ end -}}
 EOF
 
-if [[ $(brew services info sudo-touchid --json | jq -r '.[0].registered') == "false" ]]; then
-  sudo brew services start sudo-touchid
+{{ range .packages.darwin.services }}
+if [[ $(brew services info {{ . }} --json | jq -r '.[0].registered') == "false" ]]; then
+  sudo brew services start {{ . }}
 fi
+{{ end -}}
 
-if [[ $(brew services info colima --json | jq -r '.[0].registered') == "false" ]]; then
-  sudo brew services start colima
-fi
-
-mas install 1352778147  # Bitwarden
+{{ range $name, $id := .packages.darwin.mas }}
+echo "Installing {{ $name }} from Mac App Store..."
+mas install {{ $id }}
+{{ end }}
 {{ end -}}

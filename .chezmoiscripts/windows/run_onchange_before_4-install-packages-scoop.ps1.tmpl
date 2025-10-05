@@ -1,8 +1,9 @@
 {{ if eq .osid "windows" -}}
 echo "--- Adding Scoop Buckets ---"
-scoop bucket add extras
-scoop bucket add qyurila_scoop-bucket https://github.com/qyurila/scoop-bucket
-scoop bucket add anderlli0053_DEV-tools https://github.com/anderlli0053/DEV-tools
+
+{{ range $name, $url := .packages.windows.scoop.buckets }}
+scoop bucket add {{ $name }} {{ $url }}
+{{ end -}}
 
 echo "--- Installing Scoop Packages ---"
 
@@ -11,38 +12,11 @@ function Install-Or-Update-Scoop {
     if (scoop list $AppName 2>$null 6>$null) { scoop update $AppName } else { scoop install $AppName }
 }
 
-{{ $packages := list
- "neovim"
- "git"
- "gsudo"
- "python"
- "npiperelay"
- "oh-my-posh"
- "gh"
- "git-aliases"
- "git-absorb"
- "pipx"
- "nvm"
--}}
-{{ $apps := list
- "bitwarden"
- "obsidian"
- "ticktick"
- "telegram"
- "slack"
- "postman"
- "pycharm-professional"
- "goland"
- "webstorm"
- "kopiaui"
- "syncthingtray"
- "powertoys"
--}}
-{{ range $package := $packages }}
+{{ range $package := .packages.windows.scoop.packages }}
 Install-Or-Update-Scoop {{ $package }}
-{{ end }}
+{{ end -}}
 {{ if not .headless }}
-{{ range $app := $apps }}
+{{ range $app := .packages.windows.scoop.apps }}
 Install-Or-Update-Scoop {{ $app }}
 {{ end -}}
 {{ end -}}

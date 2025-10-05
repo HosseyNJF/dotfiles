@@ -1,0 +1,92 @@
+packages:
+  darwin:
+    brews:
+      - artginzburg/tap/sudo-touchid
+      - awscli
+      - chezmoi
+      - colima
+      - docker
+      - docker-credential-helper
+      - docker-credential-helper-ecr
+      - mas
+      - curl
+      - gh
+      - git
+      - git-lfs
+      - git-absorb
+      - go
+      - jq
+      - pyenv
+      - tlrc
+      - nvim
+      - wget
+    casks:
+      - zen
+      - spotify
+      - vlc
+      - transmission
+      - stats
+      - obsidian
+      - ticktick
+      - slack
+      - syncthing-app
+      - visual-studio-code
+      - pycharm
+      - goland
+      - webstorm
+      - iterm2@beta
+      - postman
+      - whatsapp
+      - telegram
+    services:
+      - colima
+      - sudo-touchid
+    mas:
+      bitwarden: 1352778147
+  windows:
+    scoop:
+      buckets:
+        extras:
+        qyurila_scoop-bucket: https://github.com/qyurila/scoop-bucket
+        anderlli0053_DEV-tools: https://github.com/anderlli0053/DEV-tools
+      packages:
+        - neovim
+        - git
+        - gsudo
+        - python
+        - npiperelay
+        - oh-my-posh
+        - gh
+        - git-aliases
+        - git-absorb
+        - pipx
+        - nvm
+      apps:
+        - bitwarden
+        - obsidian
+        - ticktick
+        - telegram
+        - slack
+        - postman
+        - pycharm-professional
+        - goland
+        - webstorm
+        - kopiaui
+        - syncthingtray
+        - powertoys
+  pipx:
+    - black
+    - poetry
+    - tldr
+  winget:
+    - Docker.DockerDesktop
+    - Armin2208.WindowsAutoNightMode
+  linux:
+    apt_get:
+      - neovim
+      - git
+      - git-lfs
+      - git-absorb
+      - jq
+      - tldr
+      - zsh
