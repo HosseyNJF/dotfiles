@@ -101,6 +101,9 @@ export NVM_DIR="$HOME/.nvm"
 {{ if eq .osid "darwin" }}
 # --- MacOS Configuration ---
 
+# Atuin
+eval "$(atuin init zsh)"
+
 # Nexus Repository (Picnic)
 export NEXUS_USERNAME="{{ (rbwFields "Nexus Repository").Username.value }}"
 export NEXUS_PASSWORD="{{ (rbwFields "Nexus Repository").Password.value }}"
