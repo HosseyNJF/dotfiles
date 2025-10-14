@@ -11,6 +11,7 @@ packages:
       - docker-credential-helper-ecr
       - mas
       - curl
+      - kubectl
       - gh
       - git
       - git-lfs
@@ -57,6 +58,7 @@ packages:
         - python
         - npiperelay
         - oh-my-posh
+        - kubectl
         - gh
         - git-aliases
         - git-absorb
