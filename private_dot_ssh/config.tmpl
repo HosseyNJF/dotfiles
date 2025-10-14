@@ -5,7 +5,6 @@ ServerAliveCountMax 10
 
 {{ if eq .osid "darwin" }}
 Include ~/.colima/ssh_config
-Include ~/.orbstack/ssh/config
 {{ end }}
 
 {{ if eq .bitwarden.is_rbw_available true }}
