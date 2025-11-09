@@ -5,6 +5,7 @@ packages:
       - atuin  # TODO: Install atuin on linux using its install script
       - awscli
       - chezmoi
+      - clippy
       - colima
       - docker
       - docker-compose
