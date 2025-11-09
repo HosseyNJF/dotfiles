@@ -3,4 +3,5 @@
   {{ $_ := set $original "credHelpers" (dict) }}
 {{ end }}
 {{ $_ := set $original.credHelpers "008971659647.dkr.ecr.eu-west-1.amazonaws.com" "ecr-login" -}}
+{{ $_ := set $original "cliPluginsExtraDirs" (list "/opt/homebrew/lib/docker/cli-plugins") -}}
 {{ $original | toPrettyJson }}
