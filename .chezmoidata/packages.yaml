@@ -79,13 +79,13 @@ packages:
         - kopiaui
         - syncthingtray
         - powertoys
-  pipx:
-    - black
-    - poetry
-    - tldr
-  winget:
-    - Docker.DockerDesktop
-    - Armin2208.WindowsAutoNightMode
+    pipx:
+      - black
+      - poetry
+      - tldr
+    winget:
+      - Docker.DockerDesktop
+      - Armin2208.WindowsAutoNightMode
   linux:
     apt_get:
       - neovim
