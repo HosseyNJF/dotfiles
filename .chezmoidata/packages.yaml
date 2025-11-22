@@ -21,6 +21,7 @@ packages:
       - go
       - jq
       - pyenv
+      - ranger
       - tlrc
       - nvim
       - wget
@@ -83,6 +84,7 @@ packages:
       - black
       - poetry
       - tldr
+      - ranger
     winget:
       - Docker.DockerDesktop
       - Armin2208.WindowsAutoNightMode
@@ -94,4 +96,5 @@ packages:
       - git-absorb
       - jq
       - tldr
+      - ranger
       - zsh
