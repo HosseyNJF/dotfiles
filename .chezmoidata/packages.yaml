@@ -33,6 +33,7 @@ packages:
       - transmission
       - stats
       - obsidian
+      - mos
       - ticktick
       - slack
       - syncthing-app
