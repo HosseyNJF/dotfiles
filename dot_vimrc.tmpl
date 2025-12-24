@@ -1,0 +1,39 @@
+" This file is managed by chezmoi. Always edit it with these commands:
+" chezmoi edit {{ .chezmoi.targetFile }}
+" chezmoi diff
+" chezmoi -v apply
+
+" Leader Key
+map <Space> <Leader>
+
+" go to normal mode by jj
+imap jj <Esc>
+
+" highlight searches
+set hlsearch
+
+" highlight search results
+set hlsearch
+
+" searching starts immediately when typing
+set incsearch
+
+" ignores case by default in search
+set ignorecase
+
+" doesn't ignore case when UPPERCASE letters exist in search
+set smartcase
+
+" put search results in the middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
+
+" backspace works normally in insert mode
+nnoremap <silent> <backspace> X
+
+" keep 5 lines between cursor and edge of screen "
+set scrolloff=5
+
+" easy tab switching via J and K
+nmap J gT
+nmap K gt
