@@ -8,6 +8,7 @@ packages:
       - clippy
       - colima
       - docker
+      - docker-buildx
       - docker-compose
       - docker-credential-helper
       - docker-credential-helper-ecr
