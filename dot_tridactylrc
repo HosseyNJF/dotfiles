@@ -1,0 +1,19 @@
+" Binds
+bind J tabnext
+bind K tabprev
+bind H back
+bind L forward
+bind f hint -t
+bind F hint
+bind gd viewsource
+unbind gf
+bind ;u hint -F e => e.dispatchEvent(new MouseEvent('mouseover', {}))
+
+" Scroll
+set smoothscroll true
+set scrollduration 50
+
+set completions.Tab.statusstylepretty true
+
+" For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
+" vim: set filetype=tridactyl
