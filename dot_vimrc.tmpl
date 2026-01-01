@@ -6,11 +6,22 @@
 " Leader Key
 map <Space> <Leader>
 
+" Plugins
+call plug#begin()
+Plug 'psliwka/vim-smoothie'
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+Plug 'unblevable/quick-scope'
+call plug#end()
+
 " go to normal mode by jj
 imap jj <Esc>
 
-" highlight searches
-set hlsearch
+" Show current line number
+set number
+
+" Show relative line numbers
+set relativenumber
 
 " highlight search results
 set hlsearch
@@ -31,9 +42,19 @@ nnoremap N Nzz
 " backspace works normally in insert mode
 nnoremap <silent> <backspace> X
 
-" keep 5 lines between cursor and edge of screen "
-set scrolloff=5
+" cursor is always in the middle of screen
+set scrolloff=999
 
 " easy tab switching via J and K
 nmap J gT
 nmap K gt
+
+" join lines via Leader-J
+nnoremap <Leader>J J
+
+" easy scrolling via Ctrl-J and Ctrl-K
+nnoremap <C-j> <C-d>
+nnoremap <C-k> <C-u>
+
+" NERDtree
+nmap <Leader>l :NERDTree<CR>
