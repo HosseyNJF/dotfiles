@@ -38,6 +38,7 @@ packages:
       - mos
       - ticktick
       - slack
+      - shottr
       - syncthing-app
       - visual-studio-code
       - pycharm
