@@ -13,6 +13,7 @@ packages:
       - docker-credential-helper
       - docker-credential-helper-ecr
       - mas
+      - mikescher/tap/dops
       - curl
       - kubectl
       - gh

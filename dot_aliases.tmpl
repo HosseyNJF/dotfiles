@@ -1,6 +1,16 @@
 {{ template "chezmoi_header" . }}
 
 # Docker
+docker() {
+  case $1 in
+    ps)
+      shift
+      command dops "$@"
+      ;;
+    *)
+      command docker "$@";;
+  esac
+}
 alias dk="docker"
 alias dkc="docker compose"
 
