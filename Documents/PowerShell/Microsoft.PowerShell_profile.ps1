@@ -13,6 +13,9 @@ function prompt {
   return " ";
 }
 
+<# FNM #>
+fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+
 <# Tab and Up/Down arrow completion like zsh #>
 
 Import-Module PSReadLine;

@@ -12,6 +12,7 @@ packages:
       - docker-compose
       - docker-credential-helper
       - docker-credential-helper-ecr
+      - fnm
       - mas
       - mikescher/tap/dops
       - curl
@@ -72,7 +73,7 @@ packages:
         - git-aliases
         - git-absorb
         - pipx
-        - nvm
+        - fnm
       apps:
         - bitwarden
         - obsidian
