@@ -1,45 +1,5 @@
 {{ if eq .osid "darwin" -}}
 
-{{ $brews := list
-     "artginzburg/tap/sudo-touchid"
-     "awscli"
-     "chezmoi"
-     "colima"
-     "docker"
-     "docker-credential-helper"
-     "docker-credential-helper-ecr"
-     "mas"
-     "curl"
-     "gh"
-     "git"
-     "git-lfs"
-     "git-absorb"
-     "go"
-     "jq"
-     "pyenv"
-     "tlrc"
-     "nvim"
-     "nvm"
-     "wget" -}}
-{{ $casks := list
-     "zen"
-     "spotify"
-     "vlc"
-     "transmission"
-     "stats"
-     "obsidian"
-     "ticktick"
-     "slack"
-     "syncthing-app"
-     "visual-studio-code"
-     "pycharm"
-     "goland"
-     "webstorm"
-     "iterm2@beta"
-     "postman"
-     "whatsapp"
-     "telegram" -}}
-
 #!{{ lookPath "bash" }}
 
 brew update
