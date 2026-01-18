@@ -65,12 +65,17 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
+  zsh-vi-mode
 )
 
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# ----------- User configuration ------------
+
+# --- Zsh vim mode configuration ---
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export GPG_TTY=$TTY
