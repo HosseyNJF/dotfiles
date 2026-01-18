@@ -74,7 +74,7 @@ style = "compact"
 ## the maximum number of lines the interface should take up
 ## when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "inline_height"
-# inline_height_shell_up_key_binding = 0
+inline_height_shell_up_key_binding = 6
 
 ## Invert the UI - put the search bar at the top , Default to `false`
 # invert = false
@@ -163,7 +163,7 @@ command_chaining = true
 ## keybinding is defined.  If this is set to "emacs", "vim-insert", or
 ## "vim-normal", the startup keymap mode in the Atuin search is forced to be
 ## the specified one.
-# keymap_mode = "auto"
+keymap_mode = "vim-normal"
 
 ## Cursor style in each keymap mode.  If specified, the cursor style is changed
 ## in entering the cursor shape.  Available values are "default" and
@@ -206,14 +206,14 @@ prefers_reduced_motion = true
 # ]
 
 ## Set commands that should be totally stripped and ignored from stats
-# common_prefix = ["sudo"]
+common_prefix = ["sudo"]
 
 ## Set commands that will be completely ignored from stats
 ignored_commands = [
   "cd",
   "ls",
   "ll",
-  "vi"
+  "l",
 ]
 
 [keys]
