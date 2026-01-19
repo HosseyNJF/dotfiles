@@ -3,26 +3,53 @@
 " chezmoi diff
 " chezmoi -v apply
 
-" Leader Key
-map <Space> <Leader>
+" --- Plugins ---
+if !has('nvim')
+  call plug#begin()
+  Plug 'psliwka/vim-smoothie'
+  Plug 'tpope/vim-surround'
+  Plug 'preservim/nerdtree'
+  Plug 'unblevable/quick-scope'
+  call plug#end()
+endif
 
-" Plugins
-call plug#begin()
-Plug 'psliwka/vim-smoothie'
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
-Plug 'unblevable/quick-scope'
-call plug#end()
+" --- Clipboard/register ---
+" yank/paste from system clipboard
+set clipboard+=unnamed
 
-" go to normal mode by jj
-imap jj <Esc>
+" --- Indentation ---
+" auto indent based on language
+set smartindent
 
-" Show current line number
+" tab button inserts space characters instead
+set expandtab
+
+" a tab is four spaces
+set tabstop=4
+
+" when hitting <BS>, pretend like a tab is removed, even if spaces
+set softtabstop=4
+
+" number of spaces to use for autoindenting
+set shiftwidth=4
+
+" use multiple of shiftwidth when indenting with '<' and '>'
+set shiftround
+
+" --- Scroll ---
+
+" keep n lines in view when scrolling
+set scrolloff=5
+
+" --- Line Numbers ---
+
+" show current line number
 set number
 
-" Show relative line numbers
+" show relative line numbers
 set relativenumber
 
+" --- Search ---
 " highlight search results
 set hlsearch
 
@@ -35,26 +62,21 @@ set ignorecase
 " doesn't ignore case when UPPERCASE letters exist in search
 set smartcase
 
+" --- Keybinds ---
+" Space is the leader key
+map <Space> <Leader>
+
+" go to normal mode by jj
+imap kj <Esc>
+
 " put search results in the middle of the screen
 nnoremap n nzz
 nnoremap N Nzz
 
-" backspace works normally in insert mode
-nnoremap <silent> <backspace> X
+" easy tab switching via H and L
+nmap H gT
+nmap L gt
 
-" cursor is always in the middle of screen
-set scrolloff=999
-
-" easy tab switching via J and K
-nmap J gT
-nmap K gt
-
-" join lines via Leader-J
-nnoremap <Leader>J J
-
-" easy scrolling via Ctrl-J and Ctrl-K
-nnoremap <C-j> <C-d>
-nnoremap <C-k> <C-u>
-
-" NERDtree
-nmap <Leader>l :NERDTree<CR>
+" easy scrolling via Shift-J and Shift-K
+nnoremap J <C-d>
+nnoremap K <C-u>
