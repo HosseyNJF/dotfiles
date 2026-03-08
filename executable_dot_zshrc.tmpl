@@ -76,9 +76,7 @@ source $ZSH/oh-my-zsh.sh
 # --- Zsh vim mode configuration ---
 ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
-
-# --- FZF ---
-source <(fzf --zsh)
+ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export GPG_TTY=$TTY
@@ -107,7 +105,9 @@ source $HOME/.aliases
 # --- MacOS Configuration ---
 
 # Atuin
-eval "$(atuin init zsh)"
+zvm_after_init_commands+=(
+  'eval "$(atuin init zsh)"'
+)
 
 # Nexus Repository (Picnic)
 export NEXUS_USERNAME="{{ (rbwFields "Nexus Repository").Username.value }}"

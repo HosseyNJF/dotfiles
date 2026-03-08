@@ -61,7 +61,7 @@ filter_mode_shell_up_key_binding = "workspace"
 ## which search mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "search_mode"
 ## leave unspecified to use same mode set in "search_mode"
-search_mode_shell_up_key_binding = "fuzzy"
+search_mode_shell_up_key_binding = "prefix"
 
 ## which style to use
 ## possible values: auto, full, compact
@@ -178,7 +178,7 @@ keymap_mode = "vim-normal"
 
 ## Set this to true and Atuin will minimize motion in the UI - timers will not update live, etc.
 ## Alternatively, set env NO_MOTION=true
-prefers_reduced_motion = true
+# prefers_reduced_motion = true
 
 [stats]
 ## Set commands where we should consider the subcommand for statistics. Eg, kubectl get vs just kubectl
