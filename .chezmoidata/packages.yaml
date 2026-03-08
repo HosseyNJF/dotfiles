@@ -24,6 +24,7 @@ packages:
       - git-absorb
       - go
       - jq
+      - lnav
       - pyenv
       - ranger
       - tlrc

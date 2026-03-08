@@ -1,0 +1,44 @@
+{
+    "$schema": "https://lnav.org/schemas/format-v1.schema.json",
+    "picnic": {
+        "description": "Picnic logs",
+        "regex": {
+            "std": {
+                "pattern": "^(?P<timestamp>\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2})\\s+(?P<level>\\w+)\\s+\\[sim-time=(?P<sim_time>[\\d.]+)\\s+trace-id=(?P<trace_id>[^\\s]+)\\s+module=(?P<module>[^\\]]+)\\]\\s+(?P<body>.*)$"
+            }
+        },
+        "level-field": "level",
+        "opid-field": "trace_id",
+        "level": {
+            "error": "ERROR",
+            "warning": "WARNING",
+            "info": "INFO",
+            "debug": "DEBUG"
+        },
+        "value": {
+            "sim_time": {
+                "kind": "float"
+            },
+            "trace_id": {
+                "kind": "string",
+                "identifier": true
+            },
+            "module": {
+                "kind": "string",
+                "identifier": true
+            },
+            "level": {
+                "kind": "string"
+            },
+            "timestamp": {
+                "kind": "string"
+            }
+        },
+        "sample": [
+            {
+                "line": "2026-02-26 13:36:55 ERROR [sim-time=30.58 trace-id=EuXPQfH7 module=async_environment] Timed out waiting for ack/nak for message 678639c7-a7a0-4781-9aa1-fc770f9196f4\n2026-02-26 13:36:55 INFO  [sim-time=38.00 trace-id=(none) module=async_consumer] Received message on exchange read_tgw with routing key picnic.ack\n2026-02-26 13:36:55 INFO  [sim-time=38.00 trace-id=(None) module=blocking_publisher] Received picnic.ack for 6738653a-c2ab-4689-8947-a6572fb54079\n2026-02-26 13:36:55 DEBUG [sim-time=38.58 trace-id=EuXPQfH7 module=conveyor_fcb] Conveyor shared:pallet-asrs-fcb-conv-lift-entrance: Handling put request for 399999999999999999",
+                "level": "error"
+            }
+        ]
+    }
+}
