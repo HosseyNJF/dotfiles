@@ -12,6 +12,7 @@ packages:
       - docker-compose
       - docker-credential-helper
       - docker-credential-helper-ecr
+      - fd
       - fnm
       - fzf
       - mas
@@ -24,9 +25,12 @@ packages:
       - git-absorb
       - go
       - jq
+      - lazydocker
+      - lazygit
       - lnav
       - pyenv
       - ranger
+      - ripgrep
       - tlrc
       - nvim
       - wget
@@ -101,10 +105,15 @@ packages:
   linux:
     apt_get:
       - neovim
+      - fd
       - git
       - git-lfs
       - git-absorb
+      - lazydocker
+      - lazygit
+      - lnav
       - jq
       - tldr
+      - ripgrep
       - ranger
       - zsh

@@ -64,7 +64,7 @@ set smartcase
 
 " --- Keybinds ---
 " Space is the leader key
-map <Space> <Leader>
+let mapleader = " "
 
 " go to normal mode by jj
 imap kj <Esc>
@@ -80,3 +80,7 @@ nmap L gt
 " easy scrolling via Shift-J and Shift-K
 nnoremap J <C-d>
 nnoremap K <C-u>
+
+" don't overwrite the register on visual mode paste
+xnoremap p P
+
