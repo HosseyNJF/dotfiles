@@ -2,7 +2,7 @@ packages:
   darwin:
     brews:
       - artginzburg/tap/sudo-touchid
-      - atuin  # TODO: Install atuin on linux using its install script
+      - atuin # TODO: Install atuin on linux using its install script
       - awscli
       - chezmoi
       - clippy
@@ -46,7 +46,7 @@ packages:
       - pycharm
       - goland
       - webstorm
-      - iterm2@beta
+      - ghostty
       - postman
       - whatsapp
       - telegram
