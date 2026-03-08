@@ -1,0 +1,49 @@
+" This wipes all existing settings. This means that if a setting in this file
+" is removed, then it will return to default. In other words, this file serves
+" as an enforced single point of truth for Tridactyl's configuration.
+sanitize tridactyllocal tridactylsync
+
+" --- Binds
+bind K tabnext
+bind J tabprev
+bind H back
+bind L forward
+bind gd viewsource
+unbind gf
+bind ;u hint -F e => e.dispatchEvent(new MouseEvent('mouseover', {}))
+
+" Tridactyl's native find is more intuitive.
+bind / fillcmdline find
+bind ? fillcmdline find -?
+bind n findnext 1
+bind N findnext -1
+bind ,<Space> nohlsearch
+
+" Open in personal container
+bind ;l composite hint -pipe a href | tabopen -c Personal
+
+" The default jump of 10 is a bit much.
+bind j scrollline 5
+bind k scrollline -5
+
+" --- Theme
+colors vimium
+
+" Show icons for tab status (for the "b" bind)
+set completions.Tab.statusstylepretty true
+
+" Uncomment these to remove the border around hints
+"set hintstyles.bg none
+"set hintstyles.fg none
+"set hintstyles.outline none
+
+{{ if eq .osid "darwin" }}
+" Editor
+set editorcmd /Applications/Ghostty.app/Contents/MacOS/ghostty -e zsh -c "/opt/homebrew/bin/nvim %f '+normal!%lGzv%c|'"
+{{ endif }}
+
+" Scroll
+set smoothscroll true
+
+" For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
+" vim: set filetype=tridactyl
