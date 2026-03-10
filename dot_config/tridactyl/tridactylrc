@@ -45,5 +45,9 @@ set editorcmd /Applications/Ghostty.app/Contents/MacOS/ghostty -e zsh -c "/opt/h
 " Scroll
 set smoothscroll true
 
+" Google Docs fix
+set allowautofocus false
+seturl ^https://docs.google.com/ preventautofocusjackhammer true
+
 " For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
 " vim: set filetype=tridactyl
