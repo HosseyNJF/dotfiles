@@ -105,12 +105,13 @@ packages:
   linux:
     apt_get:
       - neovim
-      - fd
       - git
       - git-lfs
       - git-absorb
-      - lazydocker
-      - lazygit
+      # TODO: Install with another method, perhaps brew on linux
+      # - fd
+      # - lazydocker
+      # - lazygit
       - lnav
       - jq
       - tldr
