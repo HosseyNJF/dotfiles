@@ -117,8 +117,10 @@ export NEXUS_AUTHKEY="$(echo -n "$NEXUS_USERNAME:$NEXUS_PASSWORD" | base64)"
 # AWS Artifacts Profile (Picnic)
 export AWS_PROFILE=picnic-artifacts
 
+{{   if not .headless }}
 # Bitwarden SSH Agent
 export SSH_AUTH_SOCK=$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock
+{{   end }}
 
 # Homebrew
 export HOMEBREW_AUTO_UPDATE_SECS=86400
@@ -159,8 +161,10 @@ source $HOME/.local/bin/ssh-agent-pipe
 {{   else }}
 # -- BEGIN Non-WSL --
 
+{{   if not .headless }}
 # Bitwarden SSH Agent
 export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
+{{   end }}
 
 # -- END Non-WSL --
 {{   end }}
