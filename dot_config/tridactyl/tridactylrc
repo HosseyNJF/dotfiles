@@ -19,10 +19,14 @@ bind n findnext 1
 bind N findnext -1
 bind ,<Space> nohlsearch
 
+" Tridactyl's native reader
+bind gr reader
+
 " Open in personal container
 bind ;l composite hint -pipe a href | tabopen -c Personal
 
 " The default jump of 10 is a bit much.
+set scrollduration 50
 bind j scrollline 5
 bind k scrollline -5
 
@@ -46,7 +50,7 @@ set editorcmd /Applications/Ghostty.app/Contents/MacOS/ghostty -e zsh -c "/opt/h
 set smoothscroll true
 
 " Google Docs fix
-set allowautofocus false
+seturl ^https://docs.google.com/ allowautofocus false
 seturl ^https://docs.google.com/ preventautofocusjackhammer true
 
 " For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
