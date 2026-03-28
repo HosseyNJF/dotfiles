@@ -8,6 +8,7 @@ packages:
       - chezmoi
       - clippy
       - colima
+      - dark-notify
       - delta
       - docker
       - docker-buildx

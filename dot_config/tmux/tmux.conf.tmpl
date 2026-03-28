@@ -1,3 +1,5 @@
+{{ template "chezmoi_header" . }}
+
 # === === === ===
 # === Bindings ===
 # === === === ===
@@ -18,6 +20,8 @@ bind C-l send-keys -R ^M \; clear-history
 # === === === ===
 # === SETTINGS ===
 # === === === ===
+# set-environment -g PATH "{{ lookPath "tmux" }}/..:/bin:/usr/bin"
+set-environment -g PATH "/opt/homebrew/bin:/bin:/usr/bin"
 set -g mouse on
 set -g default-terminal "tmux-256color"
 set -g mode-keys vi
@@ -25,30 +29,23 @@ set -g mode-keys vi
 # === === === === === === ===
 # === THEME - CATPPUCCIN ===
 # === === === === === === ===
-set -g @catppuccin_flavor "latte"
-set -g @catppuccin_window_status_style "rounded"
-
-# Make the status line pretty and add some modules
-set -g status-position top
-set -g status-right-length 100
-set -g status-left-length 100
-set -g status-left ""
-set -g status-right "#{E:@catppuccin_status_application}"
-set -agF status-right "#{E:@catppuccin_status_cpu}"
-set -ag status-right "#{E:@catppuccin_status_session}"
-set -ag status-right "#{E:@catppuccin_status_uptime}"
-set -g @catppuccin_window_text " #W"
-set -g @catppuccin_window_current_text " #W"
+set -g @powerkit_plugins "cpu,memory,fan,git,hostname"
+set -g @powerkit_theme "catppuccin"
+set -g @powerkit_separator_style "rounded"
+set -g @powerkit_status_interval "2"
+set -g @powerkit_transparent "false"
+set -g @powerkit_elements_spacing "windows"
 
 # === === === ===
 # === PLUGINS ===
 # === === === ===
 set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'tmux-plugins/tmux-cpu'
-set -g @plugin 'catppuccin/tmux#v2.1.3'
+set -g @plugin 'fabioluciano/tmux-powerkit'
 set -g @plugin 'christoomey/vim-tmux-navigator'
 set -g @plugin 'erikw/tmux-dark-notify'
+
+set -g @dark-notify-theme-path-light '$HOME/.config/tmux/light-theme.conf'
+set -g @dark-notify-theme-path-dark '$HOME/.config/tmux/dark-theme.conf'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
