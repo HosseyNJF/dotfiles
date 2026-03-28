@@ -3,7 +3,9 @@
 " as an enforced single point of truth for Tridactyl's configuration.
 sanitize tridactyllocal tridactylsync
 
-" --- Binds
+" === === === ===
+" ===  Binds  ===
+" === === === ===
 bind K tabnext
 bind J tabprev
 bind H back
@@ -11,6 +13,9 @@ bind L forward
 bind gd viewsource
 unbind gf
 bind ;u hint -F e => e.dispatchEvent(new MouseEvent('mouseover', {}))
+" not really happy with how it needs you to press enter twice if a tab is not open, but it's better than nothing
+command tablookup js -d` tri.excmds.tab(JS_ARGS.slice(1)).catch(e => tri.excmds.fillcmdline_notrail("tabopen", ...JS_ARGS))`
+bind t fillcmdline tablookup
 
 " Tridactyl's native find is more intuitive.
 bind / fillcmdline find
@@ -30,7 +35,10 @@ set scrollduration 50
 bind j scrollline 5
 bind k scrollline -5
 
-" --- Theme
+" === === === ===
+" === SETTINGS ===
+" === === === ===
+" Theme
 colors vimium
 
 " Show icons for tab status (for the "b" bind)
