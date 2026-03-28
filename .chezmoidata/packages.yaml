@@ -4,6 +4,7 @@ packages:
       - artginzburg/tap/sudo-touchid
       - atuin # TODO: Install atuin on linux using its install script
       - awscli
+      - btop
       - chezmoi
       - clippy
       - colima
@@ -57,6 +58,7 @@ packages:
       - whatsapp
       - telegram
     services:
+      - atuin
       - colima
       - sudo-touchid
     mas:
