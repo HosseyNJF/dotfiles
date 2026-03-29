@@ -3,29 +3,59 @@
 # === === === ===
 # === Bindings ===
 # === === === ===
+
 # ` as prefix
 unbind C-b
 set-option -g prefix `
 bind-key ` send-prefix
+
 # split panes using | and -
 bind c new-window -c "#{pane_current_path}"
 bind | split-window -h -c "#{pane_current_path}"
 bind - split-window -v -c "#{pane_current_path}"
 unbind '"'
 unbind %
+
 # bind r to reload config
 bind r source-file ~/.config/tmux/tmux.conf
+
 # C-l is used by vim-tmux-navigator, clear buffer by <prefix> C-l
 bind C-l send-keys -R ^M \; clear-history
+
+# copy mode bindings, making it more like vim cause why not
+bind Enter copy-mode
+unbind [
+bind -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi V send -X select-line
+bind -T copy-mode-vi C-v send -X rectangle-toggle
+bind -T copy-mode-vi y send -X copy-pipe-and-cancel
 
 # === === === ===
 # === SETTINGS ===
 # === === === ===
-# set-environment -g PATH "{{ lookPath "tmux" }}/..:/bin:/usr/bin"
 set-environment -g PATH "/opt/homebrew/bin:/bin:/usr/bin"
+
 set -g mouse on
 set -g default-terminal "tmux-256color"
 set -g mode-keys vi
+
+# Allows me to make muscle memory with <prefix> + 1,2,3,...
+set -g renumber-windows on
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Address vim mode switching delay (http://superuser.com/a/252717/65504)
+set -s escape-time 0
+
+# Emacs key bindings in tmux command prompt (prefix + :) are better than
+# vi keys, even for vim users
+set -g status-keys emacs
+
+# Focus events enabled for terminals that support them
+set -g focus-events on
+
+# Super useful when using "grouped sessions" and multi-monitor setup
+setw -g aggressive-resize on
 
 # === === === === === === ===
 # === THEME - CATPPUCCIN ===
