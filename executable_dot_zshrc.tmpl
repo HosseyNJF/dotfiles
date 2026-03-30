@@ -78,6 +78,29 @@ ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
 ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 
+# fzf theme
+if [[ "$(defaults read -g AppleInterfaceStyle 2>&1)" == "Dark" ]]; then
+    # Catppuccin Frappe
+    export FZF_DEFAULT_OPTS=" \
+    --color=bg+:#414559,bg:-1,spinner:#F2D5CF,hl:#E78284 \
+    --color=fg:-1,header:#E78284,info:#CA9EE6,pointer:#F2D5CF \
+    --color=marker:#BABBF1,fg+:#C6D0F5,prompt:#CA9EE6,hl+:#E78284 \
+    --color=selected-bg:#51576D \
+    --color=border:#737994,label:#C6D0F5"
+else
+    # Catppuccin Latte
+    export FZF_DEFAULT_OPTS=" \
+    --color=bg+:#CCD0DA,bg:-1,spinner:#DC8A78,hl:#D20F39 \
+    --color=fg:-1,header:#D20F39,info:#8839EF,pointer:#DC8A78 \
+    --color=marker:#7287FD,fg+:#4C4F69,prompt:#8839EF,hl+:#D20F39 \
+    --color=selected-bg:#BCC0CC \
+    --color=border:#9CA0B0,label:#4C4F69"
+fi
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="❯ "
+  --marker="●" --pointer="◆" --separator="─" --scrollbar="│"'
+
 # export MANPATH="/usr/local/man:$MANPATH"
 export GPG_TTY=$TTY
 
@@ -107,6 +130,7 @@ source $HOME/.aliases
 # Atuin
 zvm_after_init_commands+=(
   'eval "$(atuin init zsh)"'
+  'eval "$(zoxide init zsh --cmd j)"'
 )
 
 # Nexus Repository (Picnic)
