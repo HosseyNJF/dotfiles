@@ -30,11 +30,6 @@ bind gr reader
 " Open in personal container
 bind ;l composite hint -pipe a href | tabopen -c Personal
 
-" The default jump of 10 is a bit much.
-set scrollduration 50
-bind j scrollline 5
-bind k scrollline -5
-
 " === === === ===
 " === SETTINGS ===
 " === === === ===
