@@ -79,6 +79,8 @@ set -g @plugin 'catppuccin/tmux'
 set -g @plugin 'christoomey/vim-tmux-navigator'
 set -g @plugin 'erikw/tmux-dark-notify'
 set -g @plugin 'omerxx/tmux-sessionx'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
 
 # === === === === === ===
 # === PLUGIN SETTINGS ===
@@ -87,6 +89,10 @@ set -g @sessionx-bind 'o'
 set -g @sessionx-x-path '~/.local/share/chezmoi'
 set -g @dark-notify-theme-path-light '~/.config/tmux/light-theme.conf'
 set -g @dark-notify-theme-path-dark '~/.config/tmux/dark-theme.conf'
+set -g @resurrect-capture-pane-contents 'on'
+set -g @resurrect-strategy-nvim 'session'
+set -g @resurrect-processes '"claude->claude --resume" btop'
+set -g @continuum-restore 'on'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'

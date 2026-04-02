@@ -18,7 +18,7 @@
 # reloaded while running; some only apply to new windows and others may require
 # a full restart to take effect.
 
-command = zsh -c "{{ lookPath "tmux" }} new -sWelcome ~/.config/tmux/plugins/tmux-sessionx/scripts/sessionx.sh"
+command = zsh -c "{{ lookPath "tmux" }} attach || {{ lookPath "tmux" }}"
 theme = dark:Catppuccin Frappe, light: Catppuccin Latte
 shell-integration-features = ssh-terminfo,ssh-env
 macos-option-as-alt = true

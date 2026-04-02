@@ -17,3 +17,4 @@ AppData/**
 {{ end }}
 README.md
 windows-terminal-settings.json
+Session.vim
