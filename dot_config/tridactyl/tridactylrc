@@ -13,9 +13,6 @@ bind L forward
 bind gd viewsource
 unbind gf
 bind ;u hint -F e => e.dispatchEvent(new MouseEvent('mouseover', {}))
-" not really happy with how it needs you to press enter twice if a tab is not open, but it's better than nothing
-command tablookup js -d` tri.excmds.tab(JS_ARGS.slice(1)).catch(e => tri.excmds.fillcmdline_notrail("tabopen", ...JS_ARGS))`
-bind t fillcmdline tablookup
 
 " Tridactyl's native find is more intuitive.
 bind / fillcmdline find
@@ -29,6 +26,19 @@ bind gr reader
 
 " Open in personal container
 bind ;l composite hint -pipe a href | tabopen -c Personal
+
+" Tab Groups
+unbind <Space>
+
+bind <Space>v fillcmdline tabgroupswitch
+bind <Space>m fillcmdline tabgroupmove
+bind <Space>r fillcmdline tabgrouprename
+
+bind <Space>l tabgrouplast
+bind <Space>f tgroupswitch life
+bind <Space>c tgroupswitch config
+bind <Space>s tgroupswitch self-hosted
+bind <Space>p tgroupswitch picnic
 
 " === === === ===
 " === SETTINGS ===
