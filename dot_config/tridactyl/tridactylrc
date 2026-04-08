@@ -44,7 +44,7 @@ bind <Space>p tgroupswitch picnic
 " === SETTINGS ===
 " === === === ===
 " Theme
-colors vimium
+colors vimium-custom
 
 " Show icons for tab status (for the "b" bind)
 set completions.Tab.statusstylepretty true
