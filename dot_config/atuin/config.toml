@@ -56,7 +56,7 @@ workspaces = true
 ## which filter mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "filter_mode"
 ## leave unspecified to use same mode set in "filter_mode"
-filter_mode_shell_up_key_binding = "workspace"
+# filter_mode_shell_up_key_binding = "workspace"
 
 ## which search mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "search_mode"
@@ -209,12 +209,7 @@ keymap_mode = "vim-normal"
 common_prefix = ["sudo"]
 
 ## Set commands that will be completely ignored from stats
-ignored_commands = [
-  "cd",
-  "ls",
-  "ll",
-  "l",
-]
+ignored_commands = ["cd", "ls", "ll", "l", "j"]
 
 [keys]
 # Defaults to true. If disabled, using the up/down key won't exit the TUI when scrolled past the first/last entry.
@@ -240,7 +235,7 @@ records = true
 
 [daemon]
 ## Enables using the daemon to sync. Requires the daemon to be running in the background. Start it with `atuin daemon`
-# enabled = false
+enabled = true
 
 ## How often the daemon should sync in seconds
 # sync_frequency = 300
