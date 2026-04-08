@@ -134,8 +134,8 @@ zvm_after_init_commands+=(
 )
 
 # Nexus Repository (Picnic)
-export NEXUS_USERNAME="{{ (rbwFields "Nexus Repository").Username.value }}"
-export NEXUS_PASSWORD="{{ (rbwFields "Nexus Repository").Password.value }}"
+export NEXUS_USERNAME='{{ (rbwFields "Nexus Repository").Username.value }}'
+export NEXUS_PASSWORD='{{ (rbwFields "Nexus Repository").Password.value }}'
 export NEXUS_AUTHKEY="$(echo -n "$NEXUS_USERNAME:$NEXUS_PASSWORD" | base64)"
 
 # AWS Artifacts Profile (Picnic)
