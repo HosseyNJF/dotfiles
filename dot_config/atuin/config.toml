@@ -164,6 +164,7 @@ command_chaining = true
 ## "vim-normal", the startup keymap mode in the Atuin search is forced to be
 ## the specified one.
 keymap_mode = "vim-normal"
+search_mode = "daemon-fuzzy"
 
 ## Cursor style in each keymap mode.  If specified, the cursor style is changed
 ## in entering the cursor shape.  Available values are "default" and
