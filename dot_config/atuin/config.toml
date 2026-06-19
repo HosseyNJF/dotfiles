@@ -235,8 +235,9 @@ records = true
 # strategy = "auto"
 
 [daemon]
-## Enables using the daemon to sync. Requires the daemon to be running in the background. Start it with `atuin daemon`
+## Enables using the daemon to sync.
 enabled = true
+autostart = true
 
 ## How often the daemon should sync in seconds
 # sync_frequency = 300

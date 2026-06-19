@@ -60,7 +60,6 @@ packages:
       - whatsapp
       - telegram
     services:
-      - atuin
       - colima
       - sudo-touchid
     mas:
