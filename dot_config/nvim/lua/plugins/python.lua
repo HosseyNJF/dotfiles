@@ -71,4 +71,21 @@ return {
       end,
     },
   },
+  {
+    {
+      "behave-lsp.nvim",
+      dir = vim.fn.expand("~/Workspace/Sandbox/behave-lsp.nvim"),
+      build = "cd lsp_server && uv tool install . --force --reinstall",
+    },
+    {
+      "neovim/nvim-lspconfig",
+      opts = {
+        servers = {
+          behave_lsp = {
+            cmd = { "behave-lsp", "--log-level", "DEBUG" },
+          },
+        },
+      },
+    },
+  },
 }
