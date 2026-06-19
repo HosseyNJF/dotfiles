@@ -1,10 +1,10 @@
 {
     "$schema": "https://lnav.org/schemas/format-v1.schema.json",
     "picnic": {
-        "description": "Picnic logs",
+        "description": "Picnic WSS logs",
         "regex": {
             "std": {
-                "pattern": "^(?P<timestamp>[-+T.:\\d\\s]+)\\s+(?P<level>\\w+)\\s+\\[sim-time=(?P<sim_time>[\\d.]+)\\s+trace-id=(?P<trace_id>[^\\s]+)\\s+module=(?P<module>[^\\]]+)\\]\\s+(?P<body>.*)$"
+                "pattern": "^(?P<timestamp>[-+T.:\\d\\s]+)\\s+(?P<level>\\w+)\\s+\\[sim-time=(?P<sim_time>.*)\\s+(?:trace-id=(?P<trace_id>.*)\\s+)?module=(?P<module>[^\\]]*)\\]\\s+(?P<body>.*)$"
             }
         },
         "level-field": "level",
@@ -33,9 +33,6 @@
             },
             "level": {
                 "kind": "string"
-            },
-            "timestamp": {
-                "kind": "string"
             }
         },
         "sample": [
@@ -46,6 +43,10 @@
             {
                 "line": "2026-03-12T16:24:25.582870327+0100 INFO  [sim-time=25727.00 trace-id=(none) module=async_consumer] Received message on exchange picnic.ws with routing key TS7.StartTransportRequest",
                 "level": "info"
+            },
+            {
+                "line": "2026-05-21 12:25:22 DEBUG [sim-time=110227.000 module=zonepick_station] Received routing instruction: RoutingInstruction(load_carrier='000statn0', current_address=PlcAddress(plc='fcb-ambient-zonepick', address='fcb-zonepick-station-6-middle-lane-buffer-head'), next_address=PlcAddress(plc='fcb-ambient-zonepick', address='fcb-zonepick-station-6-prepick-buffer-tail'))",
+                "level": "debug"
             }
         ]
     }
