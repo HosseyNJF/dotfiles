@@ -8,6 +8,8 @@ if vim.fn.filereadable(vimrc) == 1 then
   vim.cmd("source " .. vimrc)
 end
 
+vim.o.inccommand = "split"
+
 vim.api.nvim_create_autocmd("VimLeave", {
   desc = "Create a dummy Session.vim for tmux-resurrect",
   callback = function()
@@ -18,3 +20,5 @@ vim.api.nvim_create_autocmd("VimLeave", {
     end
   end,
 })
+
+vim.g.lazyvim_python_lsp = "ty"
