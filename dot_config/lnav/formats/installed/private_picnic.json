@@ -4,7 +4,7 @@
         "description": "Picnic WSS logs",
         "regex": {
             "std": {
-                "pattern": "^(?P<timestamp>[-+T.:\\d\\s]+)\\s+(?P<level>\\w+)\\s+\\[sim-time=(?P<sim_time>.*)\\s+(?:trace-id=(?P<trace_id>.*)\\s+)?module=(?P<module>[^\\]]*)\\]\\s+(?P<body>.*)$"
+                "pattern": "^(?P<timestamp>[-+T.:\\d\\s]+)\\s+(?P<level>\\w+)\\s+\\[sim-time=(?P<sim_time>.*?)\\s+(?:trace-id=(?P<trace_id>.*?)\\s+)?module=(?P<module>[^\\]]*)\\]\\s+(?P<body>.*?)$"
             }
         },
         "level-field": "level",
