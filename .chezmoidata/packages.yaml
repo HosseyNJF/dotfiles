@@ -2,6 +2,7 @@ packages:
   darwin:
     brews:
       - artginzburg/tap/sudo-touchid
+      - pam-reattach
       - atuin # TODO: Install atuin on linux using its install script
       - awscli
       - btop

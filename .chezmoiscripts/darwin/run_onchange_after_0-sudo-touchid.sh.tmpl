@@ -1,0 +1,11 @@
+{{ if eq .osid "darwin" -}}
+#!{{ lookPath "bash" }}
+
+if ! command -v sudo-touchid >/dev/null 2>&1; then
+    echo "sudo-touchid could not be found, skipping setup"
+    exit
+fi
+
+sudo-touchid --disable
+sudo-touchid --with-reattach
+{{ end -}}
