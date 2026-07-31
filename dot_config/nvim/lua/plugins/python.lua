@@ -74,7 +74,7 @@ return {
   {
     {
       "behave-lsp.nvim",
-      dir = vim.fn.expand("~/Workspace/Sandbox/behave-lsp.nvim"),
+      dir = vim.fn.expand("~/Workspace/22.16-Open-Source/behave-lsp.nvim"),
       build = "cd lsp_server && uv tool install . --force --reinstall",
     },
     {
