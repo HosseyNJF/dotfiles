@@ -2,6 +2,7 @@ packages:
   darwin:
     brews:
       - artginzburg/tap/sudo-touchid
+      - cormacrelf/tap/dark-notify
       - pam-reattach
       - atuin # TODO: Install atuin on linux using its install script
       - awscli
