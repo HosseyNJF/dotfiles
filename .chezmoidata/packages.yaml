@@ -60,9 +60,9 @@ packages:
       - postman
       - whatsapp
       - telegram
+      - johannesnagl/tap/showmd
     services:
       - colima
-      - sudo-touchid
     mas:
       bitwarden: 1352778147
       RunCat: 1429033973
