@@ -62,6 +62,8 @@ packages:
       - whatsapp
       - telegram
       - johannesnagl/tap/showmd
+      - nikitabobko/tap/aerospace
+      - jomatsu/tap/aerokit
     services:
       - colima
     mas:
