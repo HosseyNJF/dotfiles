@@ -21,4 +21,10 @@ vim.api.nvim_create_autocmd("VimLeave", {
   end,
 })
 
-vim.g.lazyvim_python_lsp = "ty"
+-- vim.kepmap.set({ "n", "x" }, "<leader>cf", function()
+--     vim.lsp.buf.format()  -- conform.nvim is not working with ruff, so fall back to vim
+-- end, { desc = "Format (lsp)" })
+--
+vim.g.lazyvim_python_lsp = "pyrefly"
+
+-- vim.g.autoformat = false

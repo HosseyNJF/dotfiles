@@ -71,20 +71,27 @@ return {
       end,
     },
   },
+
   {
-    {
-      "behave-lsp.nvim",
-      dir = vim.fn.expand("~/Workspace/22.16-Open-Source/behave-lsp.nvim"),
-      build = "cd lsp_server && uv tool install . --force --reinstall",
-    },
-    {
-      "neovim/nvim-lspconfig",
-      opts = {
-        servers = {
-          behave_lsp = {
-            cmd = { "behave-lsp", "--log-level", "DEBUG" },
-          },
+    "behave-lsp.nvim",
+    dir = vim.fn.expand("~/Workspace/22.16-Open-Source/behave-lsp.nvim"),
+    build = "cd lsp_server && uv tool install . --force --reinstall",
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        behave_lsp = {
+          cmd = { "behave-lsp", "--log-level", "DEBUG" },
         },
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        ["python"] = { "ruff_format", "ruff_organize_imports" },
       },
     },
   },
