@@ -150,9 +150,6 @@ export SSH_AUTH_SOCK=$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwar
 export HOMEBREW_AUTO_UPDATE_SECS=86400
 export HOMEBREW_NO_ENV_HINTS=1
 
-# FNM (NPM Version manager)
-eval "$(fnm env --use-on-cd --shell zsh)"
-
 # Paths
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
@@ -161,6 +158,9 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+
+# FNM (NPM Version manager)
+eval "$(fnm env --use-on-cd --shell zsh)"
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
