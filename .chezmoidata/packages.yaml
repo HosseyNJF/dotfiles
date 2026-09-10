@@ -64,6 +64,7 @@ packages:
       - johannesnagl/tap/showmd
       - nikitabobko/tap/aerospace
       - jomatsu/tap/aerokit
+      - vicinae
     services:
       - colima
     mas:
