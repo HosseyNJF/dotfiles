@@ -105,6 +105,11 @@ on-window-detected = [
     { if.app-id = 'com.cisco.secureclient.gui', run = 'layout floating' },
 ]
 
+exec-on-workspace-change = [
+    '/Applications/AeroKit.app/Contents/MacOS/AeroKit',
+    '--workspace-changed',
+]
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
