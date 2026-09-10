@@ -1,0 +1,7 @@
+{{ if eq .bitwarden.is_bitwarden_available true -}}
+#!{{ lookPath "bash" }}
+
+if [ -x "$(command -v bwbio)" ]; then
+    bwbio sync
+fi
+{{ end -}}

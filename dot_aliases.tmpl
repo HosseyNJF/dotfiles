@@ -29,3 +29,21 @@ alias sed="gsed"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
+
+# Bitwarden
+alias bw="bwbio"
+
+{{ if eq .bitwarden.is_bitwarden_available true }}
+# Unlock the vault once (Touch ID / Windows Hello / polkit)
+# so the session key is used during the entire run
+chezmoi() {
+  case "$1" in
+    apply|diff|update|init|status|merge|merge-all)
+      if [[ -z "$BW_SESSION" ]]; then
+        export BW_SESSION="$(bwbio unlock --raw)"
+      fi
+      ;;
+  esac
+  command chezmoi "$@"
+}
+{{ end }}

@@ -7,7 +7,7 @@ ServerAliveCountMax 10
 Include ~/.colima/ssh_config
 {{ end }}
 
-{{ if eq .bitwarden.is_rbw_available true }}
+{{ if eq .bitwarden.is_bitwarden_available true }}
 # SSH Hosts
-{{ (rbw "SSH Hosts").notes }}
+{{ (bitwarden "item" "SSH Hosts").notes }}
 {{ end }}

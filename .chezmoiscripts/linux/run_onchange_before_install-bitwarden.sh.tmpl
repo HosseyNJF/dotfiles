@@ -1,14 +1,29 @@
 {{ if eq .osid "linux-debian" "linux-raspbian" "linux-ubuntu" -}}
 {{ $sudo := "sudo " -}}
 {{ if eq .chezmoi.username "root" -}}
-{{   $sudo = "" -}}
+{{ $sudo = "" -}}
 {{ end -}}
 #!{{ lookPath "bash" }}
 
-curl --output /tmp/rbw.deb https://git.tozt.net/rbw/releases/deb/rbw_1.9.0_amd64.deb
-{{ $sudo }}apt install -y /tmp/rbw.deb
-rm /tmp/rbw.deb
-rbw config set base_url {{ .bitwarden.server }}
-rbw config set email {{ .bitwarden.email }}
-rbw login
+if ! command -v npm >/dev/null; then
+    {{ $sudo }}apt-get update
+    {{ $sudo }}apt-get install -y nodejs npm
+fi
+
+{{ $sudo }}npm install -g @bitwarden/cli bitwarden-cli-bio
+
+status="$(bwbio status)"
+current_server="$(echo "$status" | jq -r '.serverUrl // empty')"
+current_email="$(echo "$status" | jq -r '.userEmail // empty')"
+
+if [ "$current_server" != "{{ .bitwarden.server }}" ]; then
+    if [ -n "$current_email" ]; then
+        bwbio logout
+    fi
+    bwbio config server {{ .bitwarden.server }}
+fi
+
+if [ "$current_email" != "{{ .bitwarden.email }}" ]; then
+    bwbio login {{ .bitwarden.email }}
+fi
 {{ end -}}

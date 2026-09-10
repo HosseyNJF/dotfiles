@@ -29,7 +29,10 @@
 [data.bitwarden]
     server = {{ $bwServer | quote }}
     email = {{ $bwEmail | quote }}
-    is_rbw_available = {{ if ne $osID "windows" }}true{{ else }}false{{ end }}
+    is_bitwarden_available = true
+
+[bitwarden]
+    command = "bwbio"
 
 [interpreters.ps1]
     command = "pwsh"

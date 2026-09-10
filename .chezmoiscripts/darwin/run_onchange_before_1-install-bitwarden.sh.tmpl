@@ -1,14 +1,20 @@
 {{ if eq .osid "darwin" -}}
 #!{{ lookPath "bash" }}
 
-brew install rbw
+brew install bitwarden-cli jeanregisser/tap/bitwarden-cli-bio
 
-# Don't auto-lock so often (default was 3600)
-rbw config set lock_timeout 86400
+status="$(bwbio status)"
+current_server="$(echo "$status" | jq -r '.serverUrl // empty')"
+current_email="$(echo "$status" | jq -r '.userEmail // empty')"
 
-# Fix pinentry using 100% cpu (https://github.com/doy/rbw/issues/11)
-rbw config set pinentry $(which pinentry-tty)
-rbw config set base_url {{ .bitwarden.server }}
-rbw config set email {{ .bitwarden.email }}
-rbw login
+if [ "$current_server" != "{{ .bitwarden.server }}" ]; then
+    if [ -n "$current_email" ]; then
+        bwbio logout
+    fi
+    bwbio config server {{ .bitwarden.server }}
+fi
+
+if [ "$current_email" != "{{ .bitwarden.email }}" ]; then
+    bwbio login {{ .bitwarden.email }}
+fi
 {{ end -}}

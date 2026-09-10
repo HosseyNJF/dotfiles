@@ -1,7 +1,0 @@
-{{ if eq .bitwarden.is_rbw_available true -}}
-#!{{ lookPath "bash" }}
-
-if [ -x "$(command -v rbw)" ]; then
-    rbw sync
-fi
-{{ end -}}
