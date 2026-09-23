@@ -3,6 +3,13 @@
 ServerAliveInterval 60
 ServerAliveCountMax 10
 
+# Reuse one TCP/auth session per destination instead of reconnecting for
+# every command. %C hashes the connection parameters, keeping the socket
+# path short enough for macOS's 104-byte unix socket limit.
+ControlMaster auto
+ControlPath ~/.ssh/cm-%C
+ControlPersist 1h
+
 {{ if eq .osid "darwin" }}
 Include ~/.colima/ssh_config
 {{ end }}
