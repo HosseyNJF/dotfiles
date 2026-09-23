@@ -10,6 +10,10 @@ after-startup-command = []
 # Start AeroSpace at login
 start-at-login = true
 
+# Automatically reload the config when the config file is saved
+# After setting this to true, reload once manually to start the auto-reloading
+auto-reload-config = true
+
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -94,12 +98,12 @@ key-mapping.preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
-gaps.inner.horizontal = 0
-gaps.inner.vertical = 0
-gaps.outer.left = 0
-gaps.outer.bottom = 0
-gaps.outer.top = 0
-gaps.outer.right = 0
+gaps.inner.horizontal = 8
+gaps.inner.vertical = 8
+gaps.outer.left = 8
+gaps.outer.bottom = 8
+gaps.outer.top = 8
+gaps.outer.right = 8
 
 on-window-detected = [
     { if.app-id = 'com.cisco.secureclient.gui', run = 'layout floating' },
@@ -232,6 +236,10 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
+
+# === My Custom Bindings ===
+cmd-alt-ctrl-shift-left = 'list-workspaces --monitor focused --empty no | workspace --stdin prev'
+cmd-alt-ctrl-shift-right = 'list-workspaces --monitor focused --empty no | workspace --stdin prev'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
