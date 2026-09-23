@@ -7,7 +7,7 @@ My personal dotfiles, managed by [chezmoi](https://www.chezmoi.io/).
 Install:
 
 ```sh
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply hosseynjf
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --source ~/Workspace/14.11-Computers/Dotfiles --apply hosseynjf
 ```
 
 Update from GitHub:

@@ -17,6 +17,8 @@
 {{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+sourceDir = "~/Workspace/14.11-Computers/Dotfiles"
+
 [data]
     osid = {{ $osID | quote }}
     headless = {{ $headless }}
